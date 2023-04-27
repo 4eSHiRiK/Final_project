@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block page_content %}
+{% load static %}
+<style>
+    table {
+    table-layout: auto; /* Ширина таблицы */
+    margin: auto ; /* Выравниваем таблицу по центру окна  */
+         text-align: center;
+   }
+    th{
+        border: 1px solid;
+        background-color: black;
+        color: #00FF00;
+    }
+    td{
+        background-color: black;
+        padding: 15px;
+        border: 1px solid;
+        color: #FFFF00
+    }
+    body { background: url(../../../static/equipment4.png);
+    background-size: cover;
+      /*background: no-repeat;*/
+    }
+     a {
+        text-decoration: none;
+    }
+   ul.hr {
+    /* Обнуляем значение отступов и полей */
+    margin: 200px; padding: 0;
+       text-align: right;
+
+   }
+   ul.hr li {
+    display: inline-block; /* Строчно-блочный элемент */
+    padding: 3px; /* Поля вокруг текста */
+
+   }
+  </style>
+
+
+<table class="table-warning">
+  <thead>
+    <tr>
+      <th scope="col"><h2>Characteristics</h2></th>
+        <th scope="col"><h2>Values</h2></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><h4>Name:</h4></td>
+
+      <td><h4>{{ equipment.name_equip}}</h4></td>
+    </tr>
+
+    <tr>
+      <td><h4>Firm:</h4></td>
+      <td><h4>{{ equipment.firm}}</h4></td>
+    </tr>
+    <tr>
+      <td><h4>Type:</h4></td>
+      <td><h4>{{ equipment.types}}</h4></td>
+    </tr>
+  <tr>
+      <td><h4>Details:</h4></td>
+      <td><h4>{{ equipment.characteristics}}</h4></td>
+    </tr>
+    <tr>
+      <td><h4>Description:</h4></td>
+      <td><h4>{{ equipment.description}}</h4></td>
+    </tr>
+  <tr>
+    <td><h4> Photo: </h4></td>
+    <td><h4><img src="{{ equipment.image.url }}" alt="{{ equipment.name }}" width="500"></h4></td>
+  </tr>
+  </tbody>
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+<style xmlns="http://www.w3.org/1999/html">
+    body { background: url(../static/phon2.png);
+    background-size: cover;}
+    a {
+        text-decoration: none;
+    }
+   ul.hr {
+
+    /* Обнуляем значение отступов и полей */
+    margin: 0; padding: 0;
+       text-align: center;
+
+   }
+   ul.hr li {
+
+    display: inline-block; /* Строчно-блочный элемент */
+    padding: 3px; /* Поля вокруг текста */
+
+   }
+  </style>
+
+<div class="text-center"><h1><font color="white"> {{ spec.name_spec }} </font></h1></div>
+
+<div class="text-center"><h2><font color="white"> Series </font></h2></div>
+<br>
+<ul class="hr">
+        {% for seria in series %}
+<div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+            <h2><a href="{% url 'prod_series' seria.name_seria %}">
+  <button type="button" class="btn btn-success"><font color="yellow"> {{ seria.name_seria }} </font></button></a></h2>
+</div>
+        {% endfor %}
+</ul>
+<br>
+<div class="text-center"><h2><font color="white"> Equipment </font></h2></div>
+<ul class="hr">
+
+        {% for equip in equipment %}
+
+             <h2><a href="{% url 'equipment_func' equip.name_current_equipment %}">
+<div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+    <button type="button" class="btn btn-success"> <font color="yellow">{{ equip.name_current_equipment }}</font></button></div></a></h2>
+
+        {% endfor %}
+</ul>
+
+<ul class="hr">
+<h2><a href="{% url 'graphik_all' name_spec %}">
+<button type="button" class="btn btn-warning btn-lg ">Average stats</button></a></h2>
+</ul>
+
+<ul class="hr">
+<h2><a href="{% url 'graphik_result' name_spec %}">
+<button type="button" class="btn btn-warning btn-lg ">Series release</button></a></h2>
+</ul>
+
+{% endblock %}

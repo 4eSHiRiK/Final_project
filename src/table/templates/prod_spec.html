@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block page_content %}
+<div class="text-center"><h1><font color="white"> {{ product.name }} </font></h1></div>
+
+<style>
+    body { background: url(../static/prod_spec1.png);
+    background-size: cover;}
+   ul.hr {
+    /* Обнуляем значение отступов и полей */
+    margin: 0; padding: 0;
+       text-align: center;
+
+   }
+   ul.hr li {
+    display: inline-block; /* Строчно-блочный элемент */
+    padding: 3px; /* Поля вокруг текста */
+
+   }
+  </style>
+
+
+<div class="text-center"><h2><font color="white"> Species </font></h2></div>
+<ul class="hr">
+        {% for spec in specs %}
+    <li><div class="card bg-warning" style="width: 18rem;">
+
+        <div class="card-body">
+    <h5 class="card-title"> {{ spec.name_spec }} </h5>
+    <p class="card-text bg"> {{ spec.description }} </p>
+    <a href="{% url 'prod_series_equip' spec.name_spec %}" class="btn btn-success"> More </a>
+  </div>
+</div></li>
+        {% endfor %}
+</ul>
+{% endblock %}

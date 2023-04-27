@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+<style>
+    table {
+    table-layout: auto; /* Ширина таблицы */
+    margin: 20px auto; /* Выравниваем таблицу по центру окна  */
+         text-align: center;
+   }
+    th{
+        border: 1px solid;
+        /*background-color: grey;*/
+        color: #00FF00;
+    }
+    td{
+        /*background-color: grey;*/
+        padding: 15px;
+        border: 1px solid;
+        color: #FFFF00
+    }
+    body { background: url(../../../static/cultivation.png);
+    background-size:  cover;
+    background-repeat: no-repeat;}
+     a {
+        text-decoration: none;
+    }
+   ul.hr {
+    /* Обнуляем значение отступов и полей */
+    margin: 0; padding: 0;
+       text-align: center;
+
+   }
+   ul.hr li {
+    display: inline-block; /* Строчно-блочный элемент */
+    padding: 3px; /* Поля вокруг текста */
+
+   }
+  </style>
+
+<table class="table-warning">
+  <thead>
+    <tr>
+      <th scope="col"><h2>Characteristics</h2></th>
+        <th scope="col"><h2>Values</h2></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><h4>Cultivation:</h4></td>
+      <td><h4>{{ cur_cultivation.cultivation}}</h4></td>
+    </tr>
+    <tr>
+      <td><h4>Date:</h4></td>
+      <td><h4>{{ cur_cultivation.date}}</h4></td>
+    </tr>
+    <tr>
+      <td><h4>Concentration_up_to:</h4></td>
+      <td><h4>{{ cur_cultivation.concentration_up_to}}</h4></td>
+    </tr>
+  <tr>
+      <td><h4>Concentration_after:</h4></td>
+      <td><h4>{{ cur_cultivation.concentration_after}}</h4></td>
+    </tr>
+    <tr>
+      <td><h4>Viability_up_to:</h4></td>
+      <td><h4>{{ cur_cultivation.viability_up_to}}</h4></td>
+    </tr>
+     <tr>
+      <td><h4>Viability_after:</h4></td>
+      <td><h4>{{ cur_cultivation.viability_after}}</h4></td>
+    </tr>
+     <tr>
+      <td><h4>pH:</h4></td>
+      <td><h4>{{ cur_cultivation.ph}}</h4></td>
+    </tr>
+     <tr>
+      <td><h4>Glucose:</h4></td>
+      <td><h4>{{ cur_cultivation.glucose}}</h4></td>
+    </tr>
+    <tr>
+        <td><h4>Lactose:</h4></td>
+        <td><h4>{{ cur_cultivation.lactose}}</h4></td>
+    </tr>
+  </tbody>
+</table>
+
+<!--<h1> Cultivation: {{ cur_cultivation.cultivation}}</h1>-->
+<!--<br>-->
+<!--<h2> Date: {{ cur_cultivation.date}}</h2>-->
+<!--<br>-->
+<!--<h3> Concentration_up_to: {{ cur_cultivation.concentration_up_to}}</h3>-->
+<!--<br>-->
+<!--<h3> Concentration_after: {{ cur_cultivation.concentration_after}}</h3>-->
+<!--<br>-->
+<!--<h3> Viability_up_to: {{ cur_cultivation.viability_up_to}}</h3>-->
+<!--<br>-->
+<!--<h3> Viability_after: {{ cur_cultivation.viability_after}}</h3>-->
+<!--<br>-->
+<!--<h3> pH: {{ cur_cultivation.ph}}</h3>-->
+<!--<br>-->
+<!--<h3> Glucose: {{ cur_cultivation.glucose}}</h3>-->
+<!--<br>-->
+<!--<h3> Lactose: {{ cur_cultivation.lactose}}</h3>-->
+
+<!--<h3> New Data </h3>-->
+<!--<form action="/{{ cult.name_of_cultivation }}/" method="post">-->
+<!--    {% csrf_token %}-->
+<!--    <div class="form-group">-->
+<!--        {{ form.date }}-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        {{ form.concentration_up_to }}-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        {{ form.concentration_after }}-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        {{ form.viability_up_to }}-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        {{ form.viability_after }}-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        {{ form.ph }}-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        {{ form.glucose }}-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        {{ form.lactose }}-->
+<!--    </div>-->
+<!--    <button type="submit">Send</button>-->
+<!--</form>-->
+{% endblock %}

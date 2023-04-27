@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+<style>
+    table {
+    table-layout: auto; /* Ширина таблицы */
+    margin: 20px auto; /* Выравниваем таблицу по центру окна  */
+         text-align: center;
+   }
+    th{
+        border: 1px solid;
+        background-color: black ;
+        color: #00FF00;
+    }
+    td{
+        background-color: black;
+        padding: 15px;
+        border: 1px solid;
+        color: #FFFF00
+    }
+    body { background: url(../../../static/solution.png);
+    background-size: 1600px 750px;
+    background-repeat: no-repeat;}
+     a {
+        text-decoration: none;
+    }
+   ul.hr {
+    /* Обнуляем значение отступов и полей */
+    margin: 0; padding: 0;
+       text-align: center;
+
+   }
+   ul.hr li {
+    display: inline-block; /* Строчно-блочный элемент */
+    padding: 3px; /* Поля вокруг текста */
+
+   }
+  </style>
+
+
+<table class="table-warning">
+  <thead>
+    <tr>
+      <th scope="col"><h2>Characteristics</h2></th>
+        <th scope="col"><h2>Values</h2></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><h4>Solution: </h4></td>
+      <td><h4>{{ cur_solution.solution}}</h4></td>
+    </tr>
+    <tr>
+      <td><h4>Target:</h4></td>
+      <td><h4>{{ cur_solution.target}}</h4></td>
+    </tr>
+    <tr>
+      <td><h4>Solution_seria:</h4></td>
+      <td><h4>{{ cur_solution.solution_seria}}</h4></td>
+    </tr>
+  <tr>
+      <td><h4>Quantity:</h4></td>
+      <td><h4>{{ cur_solution.quantity}}</h4></td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}

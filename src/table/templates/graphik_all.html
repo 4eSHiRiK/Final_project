@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block page_content %}
+{% load static %}
+<style>
+  .aligncenter {
+    text-align: center;
+  }
+    table {
+    table-layout: auto; /* Ширина таблицы */
+         text-align: center;
+   }
+    th{
+        border: 1px solid;
+        background-color: grey;
+        color: #00FF00;
+    }
+    td{
+        background-color: grey;
+        padding: 15px;
+        border: 1px solid;
+        color: #FFFF00
+    }
+    body { background: url(/../../static/phon.png);
+    background-size: cover;
+    }
+     a {
+        text-decoration: none;
+    }
+   ul.hr {
+    /* Обнуляем значение отступов и полей */
+    margin: 0; padding: 0;
+       text-align: center;
+
+   }
+   ul.hr li {
+    display: inline-block; /* Строчно-блочный элемент */
+    padding: 3px; /* Поля вокруг текста */
+
+   }
+</style>
+
+
+<p class="aligncenter"> <image src="{% static 'matplotlib/graphik_all.png' %}"></image></p>
+
+{% endblock %}

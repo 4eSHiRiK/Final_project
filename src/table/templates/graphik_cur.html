@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% block page_content %}
+{% load static %}
+
+<style>
+  .aligncenter {
+    text-align: center;
+  }
+    table {
+    table-layout: auto; /* Ширина таблицы */
+         text-align: center;
+   }
+    th{
+        border: 1px solid;
+        background-color: grey;
+        color: #00FF00;
+    }
+    td{
+        background-color: grey;
+        padding: 15px;
+        border: 1px solid;
+        color: #FFFF00
+    }
+    body { background: black;
+    background-size: cover;
+    background-repeat: no-repeat;}
+     a {
+        text-decoration: none;
+    }
+   ul.hr {
+    /* Обнуляем значение отступов и полей */
+    margin: 0; padding: 0;
+       text-align: center;
+
+   }
+   ul.hr li {
+    display: inline-block; /* Строчно-блочный элемент */
+    padding: 3px; /* Поля вокруг текста */
+
+   }
+</style>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Operations</th>
+        <th scope="col">Date</th>
+        <th scope="col">Concentration_up_to</th>
+        <th scope="col">Concentration_after</th>
+        <th scope="col">Viability_up_to</th>
+        <th scope="col">Viability_after</th>
+        <th scope="col">pH</th>
+        <th scope="col">Glucose</th>
+        <th scope="col">Lactose</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  {% for d in data %}
+    <tr>
+      <td>{{ d.cultivation }}</td>
+      <td>{{ d.date }}</td>
+      <td>{{ d.concentration_up_to }}</td>
+      <td>{{ d.concentration_after }}</td>
+      <td>{{ d.viability_up_to }}</td>
+      <td>{{ d.viability_after }}</td>
+      <td>{{ d.ph }}</td>
+      <td>{{ d.glucose }}</td>
+      <td>{{ d.lactose }}</td>
+    </tr>
+  {% endfor %}
+
+
+<!--  {% for elem in oper_lst%}-->
+<!--    <tr>-->
+<!--      <td><h4>Concentration_up_to:</h4></td>-->
+<!--      <td><h4>{{ cur_cultivation.concentration_up_to}}</h4></td>-->
+<!--    </tr>-->
+<!--  {% endfor %}-->
+<!--  {% for elem in oper_lst%}-->
+<!--  <tr>-->
+<!--      <td><h4>Concentration_after:</h4></td>-->
+<!--      <td><h4>{{ cur_cultivation.concentration_after}}</h4></td>-->
+<!--    </tr>-->
+<!--  {% endfor %}-->
+<!--  {% for elem in oper_lst%}-->
+<!--    <tr>-->
+<!--      <td><h4>Viability_up_to:</h4></td>-->
+<!--      <td><h4>{{ cur_cultivation.viability_up_to}}</h4></td>-->
+<!--    </tr>-->
+<!--  {% endfor %}-->
+<!--  {% for elem in oper_lst%}-->
+<!--     <tr>-->
+<!--      <td><h4>Viability_after:</h4></td>-->
+<!--      <td><h4>{{ cur_cultivation.viability_after}}</h4></td>-->
+<!--    </tr>-->
+<!--  {% endfor %}-->
+<!--  {% for elem in oper_lst%}-->
+<!--     <tr>-->
+<!--      <td><h4>pH:</h4></td>-->
+<!--      <td><h4>{{ cur_cultivation.ph}}</h4></td>-->
+<!--    </tr>-->
+<!--  {% endfor %}-->
+<!--  {% for elem in oper_lst%}-->
+<!--     <tr>-->
+<!--      <td><h4>Glucose:</h4></td>-->
+<!--      <td><h4>{{ cur_cultivation.glucose}}</h4></td>-->
+<!--    </tr>-->
+<!--  {% endfor %}-->
+<!--  {% for elem in oper_lst%}-->
+<!--    <tr>-->
+<!--        <td><h4>Lactose:</h4></td>-->
+<!--        <td><h4>{{ cur_cultivation.lactose}}</h4></td>-->
+<!--    </tr>-->
+<!--  {% endfor %}-->
+  </tbody>
+</table>
+
+
+
+
+<p class="aligncenter"> <image src="{% static 'matplotlib/graphik_cur.png' %}"></image></p>
+
+
+
+
+{% endblock %}

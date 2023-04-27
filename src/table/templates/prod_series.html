@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block page_content %}
+
+
+<div class="text-center"><h1><font color="white"> {{ seria.name_seria }} </font></h1></div>
+
+
+<style>
+    body { background: url(../../static/nature.gif);
+    background-size: cover;}
+     a {
+        text-decoration: none;
+    }
+   ul.hr {
+    /* Обнуляем значение отступов и полей */
+    margin: 0; padding: 0;
+       text-align: center;
+
+   }
+   ul.hr li {
+    display: inline-block; /* Строчно-блочный элемент */
+    padding: 3px; /* Поля вокруг текста */
+
+   }
+  </style>
+
+
+<div class="text-center"><h2><font color="white"> Data: </font></h2></div>
+
+<ul class="hr">
+<h2><a href="{% url 'graphik_cur' name_seria %}">
+<button type="button" class="btn btn-warning btn-lg ">Stats </button></a></h2>
+</ul>
+
+        <div class="text-center"><h2><font color="white"> Cultivation: </font></h2></div>
+
+<ul class="hr">
+        {% for cult in prod_cultivation %}
+    <h2><a href="{% url 'current_cultivation' cult.name_of_cultivation %}">
+<div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+
+  <button type="button" class="btn btn-success"><font color="yellow"> {{ cult.name_of_cultivation }} </font></button></div></a></h2>
+
+
+        {% endfor %}
+</ul>
+
+
+   <div class="text-center"><h2><font color="white"> Solutions </font></h2></div>
+
+<ul class="hr">
+        {% for sol in prod_solution %}
+
+  <h2><a href="{% url 'current_solution' sol.name_of_solution %}">
+<div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+    <button type="button" class="btn btn-success"> <font color="yellow">{{ sol.name_of_solution }}</font></button></div></a></h2>
+        {% endfor %}
+</ul>
+{% endblock %}

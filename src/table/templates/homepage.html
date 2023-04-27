@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_content %}
+
+
+
+
+
+<style>
+    body { background: url(static/home_page.png);
+    background-size: cover;}
+   ul.hr {
+    /* Обнуляем значение отступов и полей */
+    margin: 0; padding: 0;
+       text-align: center;
+
+   }
+   ul.hr li {
+    display: inline-block; /* Строчно-блочный элемент */
+    padding: 3px; /* Поля вокруг текста */
+
+   }
+   title {
+       font-size: 50px;
+	line-height: 56px;
+	color: #000;
+   }
+   title span {
+	display: inline;
+	background-color: #FE8020;
+	box-shadow: -10px 0 0 #FE8020, 10px 0 0 #FE8020;
+	padding: 10px 0;
+	color: #FFFFFF;
+	font-size: 45px;
+}
+  </style>
+
+<div class="text-center"><h1><font color="black"> Products  </font></h1></div>
+
+<!--<audio controls="controls" autoplay="autoplay">-->
+<!--        <source src="static/audio_1.ogg" type='audio/ogg; codecs=vorbis'>-->
+<!--  </audio>-->
+<ul class="hr">
+{% for product in products %}
+
+
+<!--    <div class="card text-center mb-3" style="width: 18rem;">-->
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-title">{{ product.name }}</h5>-->
+<!--        <p class="card-text">Description {{ product.name }} </p>-->
+<!--        <a href="{% url 'prod_spec' product.pk %}" class="btn btn-primary">Learn more</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<li><div class="card" style="width: 18rem;">
+  <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+  <div class="card-body ">
+    <h5 class="card-title"> {{ product.name }} </h5>
+    <p class="card-text">{{ product.description }}</p>
+    <a href="{% url 'prod_spec' product.pk %}" class="btn btn-primary"> Details </a>
+  </div>
+</div></li>
+
+
+
+
+<!--    <li><a href="{% url 'prod_spec' product.pk %}" class="list-group-item list-group-item-action text-center">-->
+<!--      <button type="button" class="btn btn-secondary btn-lg">{{ product.name }}</button></a></li>-->
+
+
+
+    {% endfor %}
+ </ul>
+{% endblock %}
